@@ -29,7 +29,6 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
         public void TimerSwitch(int delta)
         {
             _delta = delta;
-            Debug.Log(TimeLeft);
         }
     }
 }

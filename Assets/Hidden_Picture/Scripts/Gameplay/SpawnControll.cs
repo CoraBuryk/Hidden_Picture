@@ -14,6 +14,7 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
         [SerializeField] private GameObject[] _blackCharacter;
 
         [SerializeField] private GameObject[] _clone;
+        [SerializeField] private GameObject[] _spawnedObjects;
         #endregion
 
         private int _randomSpawn;
@@ -24,7 +25,7 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
             ObjectSpawn();
         }
 
-        private void ObjectSpawn()
+        public void ObjectSpawn()
         {
             int count = 0;
 
@@ -36,8 +37,15 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
                 {
                     case 0:
                         _characterSprite[0].sortingOrder = _spawnRenderer[_randomSpawn].sortingOrder;
+
+                        //GameObject si = Instantiate(_blackCharacter[0], _blackCharacterSpawn[count].position, Quaternion.identity);
+                        //GameObject clone = Instantiate(_character[0], _spawnTransorm[_randomSpawn].position, Quaternion.identity);
+
+                        //si.transform.parent = clone.transform;
+                        //clone.transform.SetParent(_canvas.transform, false);
                         _clone[0] = Instantiate(_blackCharacter[0], _blackCharacterSpawn[count].position, Quaternion.identity);
-                        _clone[0].transform.parent = (Instantiate(_character[0], _spawnTransorm[_randomSpawn].position, Quaternion.identity).transform);
+                        _clone[0].transform.parent = (Instantiate(_character[0], _spawnTransorm[_randomSpawn].position, Quaternion.identity)).transform; 
+
                         break;
                     case 1:
                         _characterSprite[1].sortingOrder = _spawnRenderer[_randomSpawn].sortingOrder;
@@ -48,11 +56,13 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
                         _characterSprite[2].sortingOrder = _spawnRenderer[_randomSpawn].sortingOrder;
                         _clone[2] = Instantiate(_blackCharacter[2], _blackCharacterSpawn[count].position, Quaternion.identity);
                         _clone[2].transform.parent = (Instantiate(_character[2], _spawnTransorm[_randomSpawn].position, Quaternion.identity).transform);
+
                         break;
                     case 3:
-                        _characterSprite[3].sortingOrder = _spawnRenderer[_randomSpawn].sortingOrder;
+                        _characterSprite[3].sortingOrder = _spawnRenderer[_randomSpawn].sortingOrder;                  
                         _clone[3] = Instantiate(_blackCharacter[3], _blackCharacterSpawn[count].position, Quaternion.identity);
                         _clone[3].transform.parent = (Instantiate(_character[3], _spawnTransorm[_randomSpawn].position, Quaternion.identity).transform);
+
                         break;
                     case 4:
                         _characterSprite[4].sortingOrder = _spawnRenderer[_randomSpawn].sortingOrder;
@@ -141,7 +151,25 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
                         break;
                 }
                 count++;
-            }
+            }            
+        }
+
+        public void FindObjects()
+        {
+            _spawnedObjects = GameObject.FindGameObjectsWithTag("Character");
+        }
+
+        public void ToDestroy()
+        {
+            FindObjects();
+            for (int i = 0; i < _spawnedObjects.Length; i++)
+                Destroy(_spawnedObjects[i]);         
+        }
+
+        public void Activate(bool state)
+        {
+            for (int i = 0; i < _spawnedObjects.Length; i++)
+                _spawnedObjects[i].SetActive(state);
         }
     }
 }

@@ -21,8 +21,18 @@ namespace Assets.Hidden_Picture.Scripts.UI
 
         private void UpdateTimeText()
         {
-            float seconds = Mathf.FloorToInt(TimerController.TimeLeft % 60);
-            _timerText.text = string.Format("{00:00}", seconds);
+            int seconds = Mathf.FloorToInt(TimerController.TimeLeft % 60);
+            int minutes = Mathf.FloorToInt(TimerController.TimeLeft / 60);
+            string sec = "";
+
+            string min = (minutes < 10) ? "" + minutes.ToString() : minutes.ToString();
+
+            if(seconds >= 10)
+                sec = (seconds < 59) ? "" + seconds.ToString() : seconds.ToString();
+            else if(seconds < 10)
+                sec = (seconds < 59) ? "0" + seconds.ToString() : seconds.ToString();
+
+            _timerText.text = string.Format($"{min} : {sec} ");
         }
     }
 }

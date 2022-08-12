@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3938168795528166106}
-  - component: {fileID: 3034238884908808379}
+  - component: {fileID: 2818955154730364412}
+  - component: {fileID: 7990078599915637913}
   m_Layer: 0
   m_Name: boh
   m_TagString: Untagged
@@ -36,7 +37,15 @@ RectTransform:
   m_AnchoredPosition: {x: -9.97, y: 2.16}
   m_SizeDelta: {x: 2.52, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!212 &3034238884908808379
+--- !u!222 &2818955154730364412
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493974195472485412}
+  m_CullTransparentMesh: 1
+--- !u!212 &7990078599915637913
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a8511ee5a05658e459f5343d7dcf61a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

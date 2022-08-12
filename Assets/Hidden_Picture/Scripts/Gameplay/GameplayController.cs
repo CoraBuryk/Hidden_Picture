@@ -11,6 +11,8 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
         [SerializeField] private Button _hintButton;
         [SerializeField] private HintsCounter _hintsCounter;
         [SerializeField] private TimerController _timerController;
+        [SerializeField] private SpawnControll _spawnControll;
+        [SerializeField] private ClickTrack _clickTrack;
         #endregion
 
         private void Start()
@@ -29,29 +31,35 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
 
         private void Hints()
         {
-            ClickTrack.TotalClick = 0;
             if (_hintsCounter.Counter > 0 && _hintsCounter.Counter <= 3)
             {
                 _objectToFind = GameObject.FindGameObjectWithTag("Character");
                 Instantiate(_particleSystem, _objectToFind.transform.position, Quaternion.identity);
                 _hintsCounter.ChangeNumberOfHints(_hintsCounter.Counter - 1);
+                _clickTrack.Click(0);
             }
         }
 
         public void Restart()
         {
-            _timerController.TimerSwitch(1);
+            _spawnControll.ToDestroy();
             TimerController.TimeLeft = 30;
+            _timerController.TimerSwitch(1);
+            _hintsCounter.ChangeNumberOfHints(_hintsCounter.Counter = 3);
+            _spawnControll.ObjectSpawn();
+            _clickTrack.Click(0);
         }
 
         public void Continue()
         {
             _timerController.TimerSwitch(1);
+            _clickTrack.Click(0);
         }
 
         public void Pause()
         {
             _timerController.TimerSwitch(0);
+            _clickTrack.Click(0);
         }
     }
 }

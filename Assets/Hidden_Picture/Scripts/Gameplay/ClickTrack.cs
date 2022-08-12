@@ -1,18 +1,17 @@
+using System;
 using UnityEngine;
 
 namespace Assets.Hidden_Picture.Scripts.Gameplay
 {
     public class ClickTrack : MonoBehaviour
-    {
+    {              
+        public event Action ClickTracking;
         public static int TotalClick = 0;
-        public KeyCode MouseClick;
 
-        void Update()
+        public void Click(int number)
         {
-            if (Input.GetKeyDown(MouseClick))
-            {
-                TotalClick += 1;
-            }
+            TotalClick = number;
+            ClickTracking?.Invoke();
         }
     }
 }
