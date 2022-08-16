@@ -1,10 +1,28 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Hidden_Picture.Scripts.Gameplay
 {
     public class ClickControl : MonoBehaviour
     {
-        private void OnMouseDown()
+        private Button _character;
+
+        private void Awake()
+        {
+            _character = GetComponent<Button>();
+        }
+
+        private void OnEnable()
+        {
+            _character.onClick.AddListener(CharacterFounded);
+        }
+
+        private void OnDisable()
+        {
+            _character.onClick.RemoveListener(CharacterFounded);
+        }
+
+        private void CharacterFounded()
         {
             Destroy(gameObject);
             TimerController.TimeLeft += 15;

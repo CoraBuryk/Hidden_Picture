@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Hidden_Picture.Scripts.UI
 {
-    public class HIntsView : MonoBehaviour
+    public class HintsView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _hints;
         [SerializeField] private HintsCounter _hintsCounter;

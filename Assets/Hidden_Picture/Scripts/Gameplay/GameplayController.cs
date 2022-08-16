@@ -1,3 +1,5 @@
+using Assets.Hidden_Picture.Scripts.Audio;
+using Assets.Hidden_Picture.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +13,10 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
         [SerializeField] private Button _hintButton;
         [SerializeField] private HintsCounter _hintsCounter;
         [SerializeField] private TimerController _timerController;
-        [SerializeField] private SpawnControll _spawnControll;
+        [SerializeField] private SpawnControl _spawnControll;
         [SerializeField] private ClickTrack _clickTrack;
+        [SerializeField] private AudioEffects _audioEffects;
+        [SerializeField] private HintsView _hintsView;
         #endregion
 
         private void Start()
@@ -35,7 +39,8 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
             {
                 _objectToFind = GameObject.FindGameObjectWithTag("Character");
                 Instantiate(_particleSystem, _objectToFind.transform.position, Quaternion.identity);
-                _hintsCounter.ChangeNumberOfHints(_hintsCounter.Counter - 1);
+                _hintsCounter.ChangeNumberOfHints(_hintsCounter.Counter -= 1);
+                _audioEffects.PlayHintSound();
                 _clickTrack.Click(0);
             }
         }
@@ -45,9 +50,10 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
             _spawnControll.ToDestroy();
             TimerController.TimeLeft = 30;
             _timerController.TimerSwitch(1);
-            _hintsCounter.ChangeNumberOfHints(_hintsCounter.Counter = 3);
+            _hintsCounter.ChangeNumberOfHints(3);
             _spawnControll.ObjectSpawn();
             _clickTrack.Click(0);
+            _hintsView.UpdateNumberOfHints();
         }
 
         public void Continue()

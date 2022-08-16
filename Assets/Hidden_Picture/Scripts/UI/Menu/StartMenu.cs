@@ -8,10 +8,6 @@ namespace Assets.Hidden_Picture.Scripts.UI.Menu
     {
         [SerializeField] private Button _startButton;
         [SerializeField] private Button _exitButton;
-        //[SerializeField] private GameObject _startPanel;
-        //[SerializeField] private GameObject _gameCompletePanel;
-
-        //private bool _isOpened = false;
 
         private void OnEnable()
         {

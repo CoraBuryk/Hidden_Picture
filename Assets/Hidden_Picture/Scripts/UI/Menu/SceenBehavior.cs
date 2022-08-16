@@ -9,9 +9,10 @@ namespace Assets.Hidden_Picture.Scripts.UI.Menu
         #region Serialized Variables
         [SerializeField] private Button _pauseButton;
         [SerializeField] private PauseMenu _pauseMenu;
-        [SerializeField] private SpawnControll spawnControll;
+        [SerializeField] private SpawnControl spawnControll;
         [SerializeField] private TimerController _timerController;
         [SerializeField] private GameCompleteMenu _gameCompleteMenu;
+        [SerializeField] private HintsCounter _hintsCounter;
         [SerializeField] private ClickTrack _clickTrack;
         #endregion
 
@@ -35,6 +36,7 @@ namespace Assets.Hidden_Picture.Scripts.UI.Menu
         {
             if (TimerController.TimeLeft <= 0)
             {
+                TimerController.TimeLeft = 30;
                 _gameCompleteMenu.CompleteGame();
             }
         }
@@ -43,6 +45,7 @@ namespace Assets.Hidden_Picture.Scripts.UI.Menu
         {
             if (CloneControl.NumberOfClone == 0)
             {
+                CloneControl.NumberOfClone = 10;
                _gameCompleteMenu.CompleteGame();
             }
         }

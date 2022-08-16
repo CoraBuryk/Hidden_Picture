@@ -31,9 +31,9 @@ namespace Assets.Hidden_Picture.Scripts.UI.Menu
 
         private void RestartGame()
         {
+            _gameplayController.Restart();
             _gameCompletePanel.SetActive(_isOpened);
             _gamePanel.SetActive(!_isOpened);
-            _gameplayController.Restart();
         }
 
         private void ExitGame()

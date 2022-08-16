@@ -14,7 +14,7 @@ namespace Assets.Hidden_Picture.Scripts.UI.Menu
         [SerializeField] private GameObject _gamePanel;
         [SerializeField] private GameObject _pausePanel;
         [SerializeField] private GameObject _enviroment;
-        [SerializeField] private SpawnControll _spawnControl;
+        [SerializeField] private SpawnControl _spawnControl;
         [SerializeField] private GameplayController _gameplayController;
         #endregion
 
