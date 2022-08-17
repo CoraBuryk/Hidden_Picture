@@ -1,4 +1,3 @@
-using Assets.Hidden_Picture.Input;
 using Assets.Hidden_Picture.Scripts.Audio;
 using Assets.Hidden_Picture.Scripts.UI;
 using UnityEngine;
@@ -19,6 +18,11 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
         [SerializeField] private AudioEffects _audioEffects;
         [SerializeField] private HintsView _hintsView;
         #endregion
+
+        private void Awake()
+        {
+            TimerController.TimeLeft = 30;
+        }
 
         private void Start()
         {

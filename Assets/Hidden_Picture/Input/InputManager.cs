@@ -44,8 +44,7 @@ namespace Assets.Hidden_Picture.Input
         private void StartTouching(InputAction.CallbackContext context)
         {
             _clickTrack.ignoreUI = false;
-            _clickTrack.Click(false);
-            Debug.Log(_clickTrack.ignoreUI);                    
+            _clickTrack.Click(false);                   
         }
 
         private void ZoomStart(InputAction.CallbackContext context)

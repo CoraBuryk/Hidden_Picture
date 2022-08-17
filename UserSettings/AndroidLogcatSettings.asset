@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R58M44VXSEM",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 17880,
+        "processId": 19249,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -66,6 +66,12 @@
             "deviceId": "R58M44VXSEM",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 17880,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M44VXSEM",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 19249,
             "exited": false
         }
     ],

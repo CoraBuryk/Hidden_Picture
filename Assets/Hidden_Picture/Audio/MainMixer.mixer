@@ -33,6 +33,39 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-4290277287923839146
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8476bccc479b5f3418cdafa3e0dbc238
+  m_EffectName: Attenuation
+  m_MixLevel: 8408bb8f36a6e874b8799576004272e5
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-942758038889099340
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Founded
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 19b5a8e1a755700498562bedd95bd4d3
+  m_Children: []
+  m_Volume: 5bf8c432c4f52a646b4582754b52e6c5
+  m_Pitch: 87ea2f35ff7b16646a812575458341bb
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4290277287923839146}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -56,6 +89,7 @@ AudioMixerController:
     - 07a46475556305f45935c760ceb10e31
     - b64eb762cd667f04db6e737872326308
     - 2adfdf8af1adfb8438502e270f59e179
+    - 19b5a8e1a755700498562bedd95bd4d3
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -103,6 +137,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 5fcb659fe333e264f8c6a7c932617123
   m_FloatValues:
+    5bf8c432c4f52a646b4582754b52e6c5: -31.129898
     a5c160f736fb79b47996325af58d78b5: -14.816608
     c52df26b9d585a349b954ab1558398d5: -14.816608
     e0d28bcdcc70b924686d6824aa0d9955: -5.7224793
@@ -132,6 +167,7 @@ AudioMixerGroupController:
   m_GroupID: b64eb762cd667f04db6e737872326308
   m_Children:
   - {fileID: -4593288181847289501}
+  - {fileID: -942758038889099340}
   m_Volume: a5c160f736fb79b47996325af58d78b5
   m_Pitch: 6a4f8754719928e4faf7a6fa93f8b06a
   m_Send: 00000000000000000000000000000000
