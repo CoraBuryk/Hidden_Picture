@@ -20,7 +20,7 @@ namespace Assets.Hidden_Picture.Input
             _touchInput = new TouchInput();
             _cameraTransform = Camera.main.transform;
             Camera.main.orthographicSize = 4.8f;
-            _canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;  
+            _canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;         
         }
 
         private void OnEnable()
@@ -43,18 +43,21 @@ namespace Assets.Hidden_Picture.Input
 
         private void StartTouching(InputAction.CallbackContext context)
         {
-            _clickTrack.Click(ClickTrack.TotalClick += 1);
+            _clickTrack.ignoreUI = false;
+            _clickTrack.Click(false);
+            Debug.Log(_clickTrack.ignoreUI);                    
         }
 
         private void ZoomStart(InputAction.CallbackContext context)
         {
             _zoomcoroutine = StartCoroutine(ZoomDetection());
-            _clickTrack.Click(ClickTrack.TotalClick = 0);
+            _clickTrack.Click(true);
         }
+
         private void ZoomEnds(InputAction.CallbackContext context)
         {
             StopCoroutine(_zoomcoroutine);
-            _clickTrack.Click(ClickTrack.TotalClick = 0);
+            _clickTrack.Click(true);
         }
 
         IEnumerator ZoomDetection()
@@ -68,15 +71,16 @@ namespace Assets.Hidden_Picture.Input
                     _touchInput.Touch.SecondaryTouchPosition.ReadValue<Vector2>());
 
                 if (distance > previousDistance)
-                {                   
-                    if(Camera.main.orthographicSize > 2.8f)
+                {
+                    if (Camera.main.orthographicSize > 2.8f)
                     {
                         Vector3 targetPosition = _cameraTransform.position;
-                        targetPosition.z -= 1;                                          
+                        targetPosition.z -= 1;
                         _cameraTransform.position = Vector3.Slerp(_cameraTransform.position, targetPosition,
                                     Time.deltaTime * _cameraSpeed);
-                         Camera.main.orthographicSize -= 0.2f;
-                    }                            
+
+                        Camera.main.orthographicSize -= 0.2f;
+                    }
                 }
                 else if (distance < previousDistance)
                 {
@@ -84,10 +88,11 @@ namespace Assets.Hidden_Picture.Input
                     {
                         Vector3 targetPosition = _cameraTransform.position;
                         targetPosition.z += 1;
-                        _cameraTransform.position = Vector3.Slerp(_cameraTransform.position, new Vector3(0,0,0),
-                                    Time.deltaTime* _cameraSpeed);
+                        _cameraTransform.position = Vector3.Slerp(_cameraTransform.position, new Vector3(0, 0, 0),
+                                    Time.deltaTime * _cameraSpeed);
+
                         Camera.main.orthographicSize += 0.2f;
-                    }                   
+                    }
                 }
                 previousDistance = distance;
                 yield return null;

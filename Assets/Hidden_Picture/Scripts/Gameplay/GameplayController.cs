@@ -1,3 +1,4 @@
+using Assets.Hidden_Picture.Input;
 using Assets.Hidden_Picture.Scripts.Audio;
 using Assets.Hidden_Picture.Scripts.UI;
 using UnityEngine;
@@ -41,7 +42,7 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
                 Instantiate(_particleSystem, _objectToFind.transform.position, Quaternion.identity);
                 _hintsCounter.ChangeNumberOfHints(_hintsCounter.Counter -= 1);
                 _audioEffects.PlayHintSound();
-                _clickTrack.Click(0);
+                _clickTrack.Click(true);
             }
         }
 
@@ -52,20 +53,20 @@ namespace Assets.Hidden_Picture.Scripts.Gameplay
             _timerController.TimerSwitch(1);
             _hintsCounter.ChangeNumberOfHints(3);
             _spawnControll.ObjectSpawn();
-            _clickTrack.Click(0);
+            _clickTrack.Click(true);
             _hintsView.UpdateNumberOfHints();
         }
 
         public void Continue()
         {
             _timerController.TimerSwitch(1);
-            _clickTrack.Click(0);
+            _clickTrack.Click(true);
         }
 
         public void Pause()
         {
             _timerController.TimerSwitch(0);
-            _clickTrack.Click(0);
+            _clickTrack.Click(true);
         }
     }
 }

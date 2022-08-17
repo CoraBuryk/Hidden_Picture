@@ -2437,6 +2437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 578974526}
   - component: {fileID: 578974525}
+  - component: {fileID: 578974527}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2456,8 +2457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb2e518ad5db174289b35036a10c022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickTrack: {fileID: 2101792685}
-  canvasScaler: {fileID: 694822286}
+  _clickTrack: {fileID: 2101792685}
+  _canvasScaler: {fileID: 694822286}
 --- !u!4 &578974526
 Transform:
   m_ObjectHideFlags: 0
@@ -2472,6 +2473,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &578974527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578974524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11f90ec2abf610408c19cae23f4a1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &582844298
 GameObject:
   m_ObjectHideFlags: 0
